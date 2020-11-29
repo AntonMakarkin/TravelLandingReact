@@ -5,25 +5,30 @@ import { Link } from 'react-router-dom';
 const STYLES = ['btn_primary', 'btn_outline'],
       SIZES = ['btn_medium', 'btn_large']
 
-export const Button = ({
+const Button = ({
     children,
-    type, 
-    onClick, 
-    buttonStyle, 
+    type,
+    onClick,
+    buttonStyle,
     buttonSize
 }) => {
-    const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0],
-          checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
-    
+    const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
+    const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
     return (
         <Link to='/sign-up' className='btn-mobile'>
-            <button 
-                className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-                onClick={onClick}
-                type={type}>
-                {children}
+            <button
+              className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+              onClick={onClick}
+              type={type}
+            >
+              {children}
             </button>
         </Link>
-    )
+    );
 };
+
+export default Button;
+
+
+
 
